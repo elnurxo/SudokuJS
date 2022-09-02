@@ -1,4 +1,5 @@
 let td = document.querySelectorAll("td");
+let valuesMain = document.querySelectorAll(".value");
 let candidateSwitch = document.querySelector("#candidate-switch");
 let numberControl = document.querySelectorAll(".number-control");
 let submitGameBtn = document.querySelector(".submit-game");
@@ -22,7 +23,7 @@ candidateSwitch.addEventListener("click",function(){
 
 td.forEach(element => element.addEventListener("click",function(e){
 
-    if (e.target.getAttribute("data-status")==null) {
+    if (e.target.getAttribute("data-status")==null && e.target.className!="given-number") {
         e.target.style.backgroundColor  = "#FFDA00"; 
     }
     
@@ -97,6 +98,11 @@ function GetNumber() {
 
 submitGameBtn.addEventListener("click",function(){
     console.log("salam");
+    valuesMain.forEach((x)=>{
+        if (x.some(x.innerText=="")) {
+            console.log("bosh xana var!");
+        }
+    })
 });
 
 
